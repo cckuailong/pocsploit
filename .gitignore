@@ -1,0 +1,4 @@
+*.pyc
+data/
+script/
+conf/config-bak.py
