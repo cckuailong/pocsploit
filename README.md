@@ -42,6 +42,12 @@ Encountered code/poc issues, please [Submit issue](https://github.com/cckuailong
 
 ## Usage
 
+### Install requirements
+
+```
+pip3 install -r requirements.txt
+```
+
 - poc to verify single website
 
 ```
