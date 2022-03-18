@@ -103,3 +103,11 @@ P.S. How to build your own DNSLog，please visit [Hyuga-DNSLog](doc/DNSLog.md)
   <img src="https://contrib.rocks/image?repo=cckuailong/pocsploit&max=100">
 </a>
 </p>
+
+## License
+
+pocsploit is distributed under [MIT License](LICENSE)
+
+## Repobeats
+
+![Alt](https://repobeats.axiom.co/api/embed/2078746e0f31620848dc0746df2f6bc5badf8f62.svg "Repobeats analytics image")
