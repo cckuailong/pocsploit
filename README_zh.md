@@ -29,9 +29,8 @@
 3. 少误报，提供fingerprint先决判断，可以先判断站点是不是有某个组件的指纹，再进行poc验证，更加准确
 4. 方式多，提供poc / exp两种 验证 / 攻击方式
 5. 详尽的漏洞信息展示
-6. Poc生态持续性：我会持续更新poc到modules/中，也欢迎大家一起 
+6. Poc生态持续性：我会持续更新poc到modules/中，也欢迎大家一起 [提交Poc](https://github.com/cckuailong/pocsploit/pulls/new)
 
-[提交Poc](https://github.com/cckuailong/pocsploit/pulls/new)
 遇到代码/poc问题，请 [提交issue](https://github.com/cckuailong/pocsploit/issues/new)
 
 ## Poc 统计

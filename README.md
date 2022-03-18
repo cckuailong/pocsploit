@@ -29,9 +29,8 @@
 3. Fewer false positives, providing fingerprint prerequisite judgment, you can first judge whether the site has the fingerprint of a certain component, and then perform POC verification, which is more accurate
 4. There are many ways to use, providing poc / exp
 5. Detailed vulnerability information display
-6. Poc ecological sustainability: I will continue to update the Poc to modules/, and welcome everyone to join us
+6. Poc ecological sustainability: I will continue to update the Poc to modules/, and welcome everyone to join us [Contribute Poc](https://github.com/cckuailong/pocsploit/pulls/new)
 
-[Contribute Poc](https://github.com/cckuailong/pocsploit/pulls/new)
 Encountered code/poc issues, please [Submit issue](https://github.com/cckuailong/pocsploit/issues/new)
 
 ## Poc Statistics
