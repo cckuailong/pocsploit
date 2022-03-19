@@ -8,7 +8,7 @@ def scan(target, module_obj):
     result = {}
     if th.FP_MODE:
         if module_obj.fingerprint(target):
-            logger.info(f"[FP] {target} target the fingerprint, do poc/exp next")
+            logger.debug(f"[FP] {target} target the fingerprint, do poc/exp next")
             if th.DETECT_MODE == "poc":
                 result = module_obj.poc(target)
             elif th.DETECT_MODE == "exp":
