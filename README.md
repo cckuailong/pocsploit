@@ -37,7 +37,7 @@ Encountered code/poc issues, please [Submit issue](https://github.com/cckuailong
 
 |  cve   | cnnvd  | others |
 |--------|--------|--------|
-|   344  |   7    |   101  |
+|   344  |   7    |   102  |
 
 ## Usage
 
