@@ -85,7 +85,7 @@ class Register:
             pass
         else:
             raise RegisterValueException('Register init func type error')
-        if len(self.targets) is 0:
+        if len(self.targets) == 0:
             msg = 'no target'
             raise RegisterDataException(msg)
         if self.start > self.stop:
