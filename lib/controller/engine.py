@@ -21,7 +21,7 @@ def scan(target, module_obj):
         elif th.DETECT_MODE == "exp":
             result = module_obj.exp(target)
     if result:
-        logger.success("[{}]{} {}".format(module_obj.__name__, SEVERITY_OUTPUT[result["info"]["severity"]], result["payload"]))
+        logger.success("[{}]{}[{}] {}".format(module_obj.__name__, SEVERITY_OUTPUT[result["info"]["severity"]], "\033[1m"+result["info"]["name"]+"\033[0m", result["payload"]))
 
 def run():
     with ThreadPoolExecutor(max_workers=th.THREADS_NUM) as executor:
